@@ -5,10 +5,10 @@ LABEL maintainer "Bitnami <containers@bitnami.com>"
 
 ENV BITNAMI_PKG_CHMOD="-R g+rwX" \
     HOME="/" \
-    OS_ARCH="arm64" \
     OS_FLAVOUR="debian-10" \
     OS_NAME="linux"
 
+RUN export OS_ARCH=$(dpkg --print-architecture | awk -F- '{ print $NF }')
 COPY --from=origin /usr/local/bin /opt/bitnami/redis/bin
 
 COPY prebuildfs /
