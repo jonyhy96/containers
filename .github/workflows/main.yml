@@ -26,8 +26,8 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: bitnami/redis/5.0/debian-10
           platforms: linux/amd64,linux/arm64
           push: true
-          file: bitnami/redis/5.0/debian-10/Dockerfile
+          file: Dockerfile
           tags: jonyhy/top-redis:5.0-debian-10
