@@ -3,7 +3,7 @@ LABEL maintainer "Bitnami <containers@bitnami.com>"
 
 ENV BITNAMI_PKG_CHMOD="-R g+rwX" \
     HOME="/" \
-    OS_ARCH="amd64" \
+    OS_ARCH="arm64" \
     OS_FLAVOUR="debian-10" \
     OS_NAME="linux"
 
