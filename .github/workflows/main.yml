@@ -29,5 +29,4 @@ jobs:
           context: bitnami/redis/5.0/debian-10
           platforms: linux/amd64,linux/arm64
           push: true
-          file: Dockerfile
           tags: jonyhy/top-redis:5.0-debian-10
