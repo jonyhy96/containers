@@ -1,3 +1,5 @@
+FROM redis:5.0.7 as origin
+
 FROM bitnami/minideb:buster
 LABEL maintainer "Bitnami <containers@bitnami.com>"
 
@@ -7,10 +9,12 @@ ENV BITNAMI_PKG_CHMOD="-R g+rwX" \
     OS_FLAVOUR="debian-10" \
     OS_NAME="linux"
 
+COPY --from=origin /usr/local/bin /opt/bitnami/redis/bin
+
 COPY prebuildfs /
 # Install required system packages and dependencies
 RUN install_packages ca-certificates curl libc6 procps sudo unzip
-RUN . ./libcomponent.sh && component_unpack "redis" "5.0.7-1" --checksum 3707cee91ed431b7241c5ae7c5195f8ecdac99c388814b685f07b3b83651ad9b
+# RUN . ./libcomponent.sh && component_unpack "redis" "5.0.7-1" --checksum xxx
 RUN apt-get update && apt-get upgrade -y && \
     rm -r /var/lib/apt/lists /var/cache/apt/archives
 RUN /build/install-gosu.sh

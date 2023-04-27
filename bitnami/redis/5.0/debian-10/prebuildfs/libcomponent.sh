@@ -41,7 +41,7 @@ component_unpack() {
         esac
         shift
     done
-
+    # redis-5.0.7-1-linux-arm64-debian-10.tar.gz
     echo "Downloading $base_name package"
     if [ -f "${CACHE_ROOT}/${base_name}.tar.gz" ]; then
         echo "${CACHE_ROOT}/${base_name}.tar.gz already exists, skipping download."
