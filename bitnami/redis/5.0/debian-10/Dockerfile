@@ -1,4 +1,4 @@
-FROM redis:5.0.7 as origin
+FROM jonyhy/redis:5.0 as origin
 
 FROM bitnami/minideb:buster
 LABEL maintainer "Bitnami <containers@bitnami.com>"
